@@ -20,12 +20,14 @@ You will have to set up a redis database to store access tokens. In this instanc
 Documentation: `https://redis.io/docs/getting-started/`
 
 To test if the database is working properly
-`$ redis-cli ping
-PONG`
+```
+$ redis-cli ping
+PONG
+```
 
 To see the current token
-
-`$ redis-cli`
-`redis> GET token`
-`"mytoken"`
-
+```
+$ redis-cli
+redis> GET token
+"mytoken"
+```
