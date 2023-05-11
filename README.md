@@ -2,15 +2,16 @@
 Twitter bot with Python, OAuth 2.0 and v2 Twitter API.
 The bot uses a redis database to store access tokens.
 
----
+
 
 ## How To Use
 
-Get your keys after creating a app in `https://developer.twitter.com/`and put them in `keys.py`
+Get your keys after creating a app in `https://developer.twitter.com/` and put them in `keys.py`
 
 Modify `tweet_text.py` to fit your needs. In this case the bot webscrapes uvkollen.se for the current day's UV-index values for a certain city. It then tweets out the scraped values together with appropriate emojis without needing any more authentication.
 
 If you are tweeting directly from the `main.py` you will have to manually authenticate each tweet in your browser.
+
 
 
 ### Redis database
@@ -23,7 +24,8 @@ To test if the database is working properly
 PONG`
 
 To see the current token
-`$ redis-cli
-redis> GET token
-"mytoken"`
+
+`$ redis-cli`
+`redis> GET token`
+`"mytoken"`
 
