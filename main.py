@@ -10,7 +10,6 @@ from requests_oauthlib import OAuth2Session, TokenUpdated
 from flask import Flask, request, redirect, session, url_for, render_template
 import keys
 
-#ändrat
 r = redis.StrictRedis(host='localhost', port=6379, db=0)
 
 app = Flask(__name__)
@@ -51,6 +50,19 @@ def post_tweet(payload, token):
         },
     )
 
+
+# Currently not available to free access/essential access for v2 API
+def read_tweet(tweet_id, token):
+    print("Reading!")
+    return requests.request(
+        "GET",
+        f"https://api.twitter.com/2/tweets/{tweet_id}",
+        headers={
+            "Authorization": "Bearer {}".format(token["access_token"]),
+            "Content-Type": "application/json",
+        },
+    )
+
       
 @app.route("/")
 def demo():
@@ -76,8 +88,11 @@ def callback():
     j_token = json.loads(st_token)
 
     r.set("token", j_token)
-    payload = {"text": "null_tweet"}
+
+    # Use auto_tweeter.py for the automated experience
+    payload = {f"text": "This tweet was manually authenticated in browser"}
     response = post_tweet(payload, token).json()
+
     return response
 
 if __name__ == "__main__":

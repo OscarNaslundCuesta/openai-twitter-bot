@@ -8,10 +8,9 @@ from bs4 import BeautifulSoup
 USING_GPT = True
 
 nested_tweet_list = [
-
     ["Brrr, kallt! Var fan är solen?", "Skuggor på semester", "Du behöver inte oroa dig för solen, den är på semester.",
      "När solen tar en välbehövlig powernap", "Zzz...", "Det är mörkt", "Stjärnornas tid att lysa",
-     "Solskyddsfaktor: Bäddmörker"],
+     "Solskyddsfaktor: Bäddmörker"], # UV-index = 0
 
     ["Solen spelar gömma och sjunka", "Solkramar på låg värme",
      "Solen sneglar på oss, men är för blyg för att säga hej"],  # UV-index = 1
@@ -28,8 +27,7 @@ nested_tweet_list = [
     ["Vem behöver brun utan sol?", "Gränslinjen mellan solsemester och 'hej solbränna'", "Solens varma kram",
      "Solglasögon på standby"],  # UV-index = 5
 
-    [
-        "Du vet att UV-indexet är 6 när vampyrerna börjar överväga att starta en nattklubb istället för att gå ut på dagen.",
+    ["Du vet att UV-indexet är 6 när vampyrerna börjar överväga att starta en nattklubb istället för att gå ut på dagen.",
         "Solkrämsgladje", "Skuggor på flykt", "Solhattar, ut och marsch!"],  # UV-index = 6
 
     ["Du vet att det är en UV-index 7 dag när solskyddsfaktor 50 plötsligt blir din bästa vän.",
@@ -51,8 +49,21 @@ nested_tweet_list = [
 
     ["Aaaaaaaj! Det gör ont!", "Solen är inte längre din vän", "Solen, vad hände med oss?",
      "Satan i gatan! Här var det varmt..."]  # UV-index = 11
-
 ]
+
+cities_in_sweden = [
+    "Stockholm",
+    "Göteborg",
+    "Malmö",
+    "Uppsala",
+    "Västerås",
+    "Örebro",
+    "Linköping",
+    "Helsingborg",
+    "Norrköping",
+    "Jönköping"
+]
+
 
 emoji_dict = {
     0: "\U0001F31A",  # moon_emoji (UV index 0-1)
@@ -74,7 +85,7 @@ robot_emoji = "\U0001F916"
 
 def scrape_uvkollen(url):
     """
-    Webscrapes a url for element_id "maxUV" and "maxYVAt". Returns a tuple.
+    Webscrapes a url for element_id "maxUV" and "maxUVAt". Returns a tuple.
     """
 
     response = requests.get(url)
@@ -124,7 +135,3 @@ def create_tweet(city):
     print("Tweet text:\n" + tweet_text)
 
     return tweet_text
-
-
-# For testing
-# create_tweet("Stockholm")
