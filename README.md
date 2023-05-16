@@ -2,11 +2,19 @@
 Twitter bot using, Python, OAuth 2.0, v2 Twitter API and OpenAI API (GPT-3).
 The bot uses a redis database to store access tokens.
 
+![Image](twitter_bot.png)
+
+## Features
+- Webscrapes my friends website [https://uvkollen.se](https://uvkollen.se) for the current UV-index
+- Creates a funny tweet using a GPT-3 prompt or ...
+- Tweets a random appropriate pre-generated tweet
+- Uses OAuth 2.0 PKCE Auth or HTTPBasicAuth
+
 
 
 ## How To Use
 
-Get your keys after creating a app in [https://developer.twitter.com/](https://developer.twitter.com/) and put them in `keys.py`.
+Get your keys after creating a app in [https://developer.twitter.com/](https://developer.twitter.com/). You are going to want to create an .env file and set up enviroment variables for security reasons. The `keys.py` can also be used but it isn't ideal.
 
 Modify `tweet_generator.py` to fit your needs. In this case the bot webscrapes uvkollen.se for the current day's UV-index values for a certain city. It then tweets out the scraped values together with appropriate emojis without needing any more authentication. OpenAI API usage is optional and can be changed inside this file.
 
