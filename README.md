@@ -1,14 +1,14 @@
 # Twitter Bot
-Twitter bot with Python, OAuth 2.0 and v2 Twitter API.
+Twitter bot using, Python, OAuth 2.0, v2 Twitter API and OpenAI API (GPT-3).
 The bot uses a redis database to store access tokens.
 
 
 
 ## How To Use
 
-Get your keys after creating a app in [https://developer.twitter.com/](https://developer.twitter.com/) and put them in `keys.py`
+Get your keys after creating a app in [https://developer.twitter.com/](https://developer.twitter.com/) and put them in `keys.py`.
 
-Modify `tweet_generator.py` to fit your needs. In this case the bot webscrapes uvkollen.se for the current day's UV-index values for a certain city. It then tweets out the scraped values together with appropriate emojis without needing any more authentication.
+Modify `tweet_generator.py` to fit your needs. In this case the bot webscrapes uvkollen.se for the current day's UV-index values for a certain city. It then tweets out the scraped values together with appropriate emojis without needing any more authentication. OpenAI API usage is optional and can be changed inside this file.
 
 If you are tweeting directly from the `main.py` you will have to manually authenticate each tweet in your browser. If you are using `auto_tweeter.py` it will tweet automatically.
 
