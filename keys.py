@@ -6,5 +6,6 @@ client_id = 'insert_your_own'
 client_secret = 'insert_your_own'
 redirect_uri = 'http://127.0.0.1:5000/oauth/callback'
 
+openai_api_key = 'insert_your_own'
 
 redis_url = 'only_needed_if_running_redis_locally'

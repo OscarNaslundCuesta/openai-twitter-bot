@@ -1,6 +1,7 @@
 import openai
+import keys
 
-openai.api_key = "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"
+openai.api_key = keys.openai_api_key
 
 
 def prompt(uv_index):
