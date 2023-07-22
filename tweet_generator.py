@@ -96,8 +96,8 @@ def scrape_uvkollen(url):
 
         if max_uv_element:
             json_data = json.loads(max_uv_element.string)
-            max_uv = json_data["props"]["pageProps"]["data"]["maxUV"]
-            max_uv_at = json_data["props"]["pageProps"]["data"]["maxUVAt"]
+            max_uv = json_data["props"]["pageProps"]["data"]["maxUV"][1]
+            max_uv_at = json_data["props"]["pageProps"]["data"]["maxUV"][0]
 
             return max_uv, max_uv_at
 

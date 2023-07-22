@@ -1,13 +1,18 @@
 import main
 import json
+import os
 from requests.auth import HTTPBasicAuth
-import keys
 import tweet_generator
+from dotenv import load_dotenv
 import random
 
 twitter = main.make_token()
-client_id = keys.client_id
-client_secret = keys.client_secret
+
+load_dotenv()  # take environment variables from .env.
+
+client_id = os.getenv('CLIENT_ID')
+client_secret = os.getenv('CLIENT_ID_SECRET')
+
 token_url = "https://api.twitter.com/2/oauth2/token"
 
 t = main.r.get("token")

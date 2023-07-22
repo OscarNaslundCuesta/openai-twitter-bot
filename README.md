@@ -44,5 +44,9 @@ To see the current token:
 ```
 $ redis-cli
 redis> GET token
-"mytoken"
+"{'token_type': 'bearer', 'expires_in': 7200, 'access_token': 'abcdefgEXAMPLE123456', 'scope': ['tweet.write', 'users.read', 'tweet.read', 'offline.access'], 'refresh_token': 'abcdefgEXAMPLE123456', 'expires_at': 1690061044.901524}"
+
 ```
+
+If the current token is empty, try to tweet once by running `main.py`.
+This will set the token so you can later tweet using `auto_tweeter.py`.
