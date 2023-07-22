@@ -14,7 +14,7 @@ The bot uses a redis database to store access tokens.
 
 ## How To Use
 
-Get your keys after creating a app in [https://developer.twitter.com/](https://developer.twitter.com/). You are going to want to create an .env file and set up enviroment variables for security reasons. The `keys.py` can also be used but it isn't ideal.
+Get your keys after creating a app in [https://developer.twitter.com/](https://developer.twitter.com/). You are going to want to rename `.env.example` to `.env` and set up enviroment variables for your own keys.
 
 Modify `tweet_generator.py` to fit your needs. In this case the bot webscrapes uvkollen.se for the current day's UV-index values for a certain city. It then tweets out the scraped values together with appropriate emojis without needing any more authentication. OpenAI API usage is optional and can be changed inside this file.
 
