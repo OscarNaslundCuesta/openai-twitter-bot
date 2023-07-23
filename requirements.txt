@@ -4,5 +4,5 @@ redis~=4.6.0
 flask~=1.1.4
 beautifulsoup4~=4.12.2
 openai~=0.27.8
-python-dotenv~=1.0.0
+python-dotenv~=0.21.0
 markupsafe==2.0.1
