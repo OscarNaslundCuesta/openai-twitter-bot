@@ -15,8 +15,10 @@ load_dotenv()  # take environment variables from .env.
 redis_url = os.getenv('redis_url')
 
 if redis_url:  # run redis on e.g. cloud provider
+    print("Running external Redis...")
     r = redis.Redis.from_url(redis_url, ssl_cert_reqs=ssl.CERT_NONE)
 else:  # run locally
+    print("Running Redis on localhost...")
     r = redis.StrictRedis(host='localhost', port=6379, db=0)
 
 
