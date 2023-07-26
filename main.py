@@ -5,17 +5,24 @@ import re
 import json
 import requests
 import redis
+import ssl
 from requests.auth import AuthBase, HTTPBasicAuth
 from requests_oauthlib import OAuth2Session, TokenUpdated
 from flask import Flask, request, redirect, session, url_for, render_template
 from dotenv import load_dotenv
 
-r = redis.StrictRedis(host='localhost', port=6379, db=0)
+load_dotenv()  # take environment variables from .env.
+redis_url = os.getenv('redis_url')
+
+if redis_url:  # run redis on e.g. cloud provider
+    r = redis.Redis.from_url(redis_url, ssl_cert_reqs=ssl.CERT_NONE)
+else:  # run locally
+    r = redis.StrictRedis(host='localhost', port=6379, db=0)
+
 
 app = Flask(__name__)
 app.secret_key = os.urandom(50)
 
-load_dotenv()  # take environment variables from .env.
 
 client_id = os.getenv('CLIENT_ID')
 client_secret = os.getenv('CLIENT_ID_SECRET')
